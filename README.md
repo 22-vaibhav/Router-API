@@ -42,10 +42,10 @@ fetch("https://router-api-qga7.onrender.com/api/network-data")
 ## ⚙️ **How API works**
 
 ### **1. Live Data Streaming (SSE):**
-> - **/api/live-network-data** sends updates continuously to connected clients.
+> - ```/api/live-network-data``` sends updates continuously to connected clients.
 
 ### **2. Fetch-on-Request API:**
-> - **/api/network-data** provides the latest snapshot of router statistics.
+> - ```/api/network-data``` provides the latest snapshot of router statistics.
 
 ## 📌 **Example API Response**  
 ```json
@@ -65,3 +65,9 @@ fetch("https://router-api-qga7.onrender.com/api/network-data")
     "timestamp": "2025-03-25T05:32:44.953172+00:00"
 }
 ```
+
+## 🎯 **How to Use This API**  
+
+### 📌 **For Web & Frontend Applications**  
+> - Use JavaScript ```fetch()``` to request data.
+> - Use **SSE (Server-Sent Events)** for real-time updates.
