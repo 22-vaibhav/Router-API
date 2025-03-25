@@ -71,3 +71,18 @@ fetch("https://router-api-qga7.onrender.com/api/network-data")
 ### 📌 **For Web & Frontend Applications**  
 > - Use JavaScript ```fetch()``` to request data.
 > - Use **SSE (Server-Sent Events)** for real-time updates.
+
+### 📌 **For Python Applications** 
+
+```python
+import requests
+
+API_URL = "https://router-api-qga7.onrender.com/api/network-data"
+
+response = requests.get(API_URL)
+if response.status_code == 200:
+    data = response.json()
+    print("Latest Network Data:", data)
+else:
+    print("Failed to fetch data")
+```
