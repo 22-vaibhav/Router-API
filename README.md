@@ -51,7 +51,7 @@ fetch("https://router-api-qga7.onrender.com/api/network-data")
 ```json
 {
     "router_id": "R1",
-    "hostname": "TJ2100N-14B GPON ONT",
+    "hostname": "TJxxxN-xxB GPON ONT",
     "ip_address": "192.168.1.1",
     "uptime": "52 days, 10 hours, 23 minutes",
     "cpu_usage": 45,
