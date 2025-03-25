@@ -20,5 +20,19 @@ const eventSource = new EventSource("https://router-api-qga7.onrender.com/api/li
 
 eventSource.onmessage = (event) => {
     const data = JSON.parse(event.data);
-    console.log("🔴 Live Update:", data);
+    console.log("Live Update:", data);
+};
+
+### 🔴 **2. Fetch Current Network Data (Latest Snapshot)**  
+> **URL:** [https://router-api-qga7.onrender.com/api/network-data](https://router-api-qga7.onrender.com/api/network-data)  
+> **Description:**  
+> - Returns the **latest network statistics** as a JSON response.  
+> - Best for applications that need **periodic polling** instead of live streaming.  
+
+**📌 Example (JavaScript Fetch - Current Data)**  
+```javascript
+fetch("https://router-api-qga7.onrender.com/api/network-data")
+  .then(response => response.json())
+  .then(data => console.log("Latest Data:", data))
+  .catch(error => console.error("Error fetching data:", error));
 };
