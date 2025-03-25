@@ -38,7 +38,16 @@ fetch("https://router-api-qga7.onrender.com/api/network-data")
   .catch(error => console.error("Error fetching data:", error));
 };
 ```
-**📌 Example API Response**  
+
+## ⚙️ **How API works**
+
+### **1. Live Data Streaming (SSE):**
+> - **/api/live-network-data** sends updates continuously to connected clients.
+
+### **2. Fetch-on-Request API:**
+> - **/api/network-data** provides the latest snapshot of router statistics.
+
+## 📌 **Example API Response**  
 ```json
 {
     "router_id": "R1",
@@ -56,4 +65,3 @@ fetch("https://router-api-qga7.onrender.com/api/network-data")
     "timestamp": "2025-03-25T05:32:44.953172+00:00"
 }
 ```
-### ⚙️ ** How API works**  
