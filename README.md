@@ -56,3 +56,4 @@ fetch("https://router-api-qga7.onrender.com/api/network-data")
     "timestamp": "2025-03-25T05:32:44.953172+00:00"
 }
 ```
+### ⚙️ ** How API works**  
