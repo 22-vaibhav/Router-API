@@ -22,6 +22,7 @@ eventSource.onmessage = (event) => {
     const data = JSON.parse(event.data);
     console.log("Live Update:", data);
 };
+```
 
 ### 🔴 **2. Fetch Current Network Data (Latest Snapshot)**  
 > **URL:** [https://router-api-qga7.onrender.com/api/network-data](https://router-api-qga7.onrender.com/api/network-data)  
@@ -36,3 +37,4 @@ fetch("https://router-api-qga7.onrender.com/api/network-data")
   .then(data => console.log("Latest Data:", data))
   .catch(error => console.error("Error fetching data:", error));
 };
+```
