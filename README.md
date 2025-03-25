@@ -38,3 +38,21 @@ fetch("https://router-api-qga7.onrender.com/api/network-data")
   .catch(error => console.error("Error fetching data:", error));
 };
 ```
+**📌 Example API Response**  
+```json
+{
+    "router_id": "R1",
+    "hostname": "TJ2100N-14B GPON ONT",
+    "ip_address": "192.168.1.1",
+    "uptime": "52 days, 10 hours, 23 minutes",
+    "cpu_usage": 45,
+    "memory_utilization": 65,
+    "bandwidth_usage": {
+        "download": 310,
+        "upload": 85
+    },
+    "latency": 12,
+    "packet_loss": 1.3,
+    "timestamp": "2025-03-25T05:32:44.953172+00:00"
+}
+```
