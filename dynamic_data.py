@@ -22,6 +22,13 @@ def generate_dynamic_data():
         "latency": random.randint(5, 50),  # ms
         "packet_loss": round(random.uniform(0.1, 2.0), 2),  # percentage
         "timestamp": datetime.now(timezone.utc).isoformat(),
+        "thresholds": {
+            "cpu": 75,
+            "memory": 75,
+            "interface_errors": 5,
+            "latency": 100,
+            "packet_loss": 2,
+        },
     }
 
     # Overwriting `network_data.json` with new data
