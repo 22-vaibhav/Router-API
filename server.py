@@ -1,46 +1,40 @@
 from flask import Flask, jsonify, Response, stream_with_context
 from flask_cors import CORS
-import json
 import time
-import threading
+import json
 from dynamic_data import generate_dynamic_data
 
 app = Flask(__name__)
 CORS(app)
 
-# SINGLE SHARED MEMORY DATA → super fast
-latest_data = {}
-
 # --------------------------------------------------------
-# BACKGROUND THREAD: updates in-memory data only
-# --------------------------------------------------------
-def update_data_continuously():
-    global latest_data
-    while True:
-        latest_data = generate_dynamic_data()  # NO FILE WRITING
-        time.sleep(3)
-
-threading.Thread(target=update_data_continuously, daemon=True).start()
-
-# --------------------------------------------------------
-# Normal API Endpoint
+# Normal API → returns fresh data on each request
 # --------------------------------------------------------
 @app.route("/api/network-data")
 def get_network_data():
-    return jsonify(latest_data)
+    data = generate_dynamic_data()
+    return jsonify(data)
 
 # --------------------------------------------------------
-# Server-Sent Events (Live Streaming)
+# Server-Sent Events → streams new data every 3 sec
 # --------------------------------------------------------
 @app.route("/api/live-network-data")
-def live_stream():
+def stream_network_data():
 
     def generate():
         while True:
-            yield f"data: {json.dumps(latest_data)}\n\n"
+            data = generate_dynamic_data()
+            yield f"data: {json.dumps(data)}\n\n"
             time.sleep(3)
 
-    return Response(stream_with_context(generate()), mimetype="text/event-stream")
+    headers = {
+        "Cache-Control": "no-cache",
+        "X-Accel-Buffering": "no"
+    }
+
+    return Response(stream_with_context(generate()),
+                    mimetype="text/event-stream",
+                    headers=headers)
 
 # --------------------------------------------------------
 # Run Server
